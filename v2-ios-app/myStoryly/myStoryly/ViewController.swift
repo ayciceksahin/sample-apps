@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     internal var openUrl: URL?
     internal var openUrlPayload: [AnyHashable : Any]?
     
-    let STORYLY_INSTANCE_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjU2NTEsImFwcF9pZCI6MTA1MTYsImluc19pZCI6MTExNDF9.N6PU6bX9NhQbHuQZR1T4lvhlSOoEKsQyrWD7Jn493CY"
+    let STORYLY_INSTANCE_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTMxMTUsImluc19pZCI6MTQyNDh9.8_WHJ9WFClC2UCi3MVBc4B4m1Hfce-LHrA0SUcnJiVo"
     
     let userPropertiesData = [
         "name" : "Sahin",

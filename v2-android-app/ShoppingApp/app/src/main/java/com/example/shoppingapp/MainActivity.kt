@@ -29,11 +29,12 @@ class MainActivity : AppCompatActivity() {
         val storylyView = findViewById<StorylyView>(R.id.storyly_view)
 
         storylyView.storylyInit = StorylyInit(
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTMxMTUsImluc19pZCI6MTQyNDh9.8_WHJ9WFClC2UCi3MVBc4B4m1Hfce-LHrA0SUcnJiVo",
             //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjE4OTEsImFwcF9pZCI6MTU1MSwiaW5zX2lkIjoxNjAyfQ.goOlDWhV2ikJwJd3tvx2bKg5Ot0Qu_cDvMk0MbDpm9E",
             //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjE5MjYsImFwcF9pZCI6MTU4MywiaW5zX2lkIjoxNjM1fQ.iI0yUR2WIAyXNvIgQuVDIle-42sPNcno6jaQHAxNko0",
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjEwNTY5LCJhcHBfaWQiOjE1ODg2LCJpbnNfaWQiOjE3NDIwfQ.vM9PyK5NlmKwS8IibZZgTJ2fmSoK1h7yf_zfUdeH-BI",
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjg2MzcsImFwcF9pZCI6MTM2ODMsImluc19pZCI6MTQ5MDZ9.esNPIaerwFGweMMxi16W4CrjPb2ZDkQ42yA6U3DdIzA",
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU",
+            //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU",
             StorylyConfig.Builder()
                 .setStoryGroupStyling(
                     StorylyStoryGroupStyling.Builder()
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                         .setHeaderIconVisibility(isVisible = false)
                         .build()
                 )
-                .setLabels(labels = setOf("english", "turkey", "french", "audi"))
+                .setLabels(labels = setOf("english", "turkey", "french", "test", "default"))
                 .setCustomParameter("3")
                 .setUserData(mapOf(
                     "user_name" to "Saiful",
@@ -65,6 +66,10 @@ class MainActivity : AppCompatActivity() {
                 ))
                 .build()
         )
+
+
+        //storylyView.openStory("93337", "855786", PlayMode.Default)
+
         storylyView.storylyListener = object : StorylyListener {
             var initialLoad = true
 
