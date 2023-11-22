@@ -58,7 +58,7 @@ const CustomPortraitView = ({ storyGroup }) => {
     )
 }
 
-
+var productOnCarts: any[] = [];
 
 export default class App extends Component {
     storyly: any;
@@ -68,9 +68,50 @@ export default class App extends Component {
                  <Storyly
                     ref={ref => { this.storyly = ref }}
                     style={{ width: '100%', height: 120, marginTop: 15, }}
-                    storylyId={STORYLY_TOKEN}
+                    storylyId={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTIyNjIsImluc19pZCI6MTg3ODl9.Msjy7NE63EqsBW2J_LRn63MiqmCPFq3vIG2dY9Ur6qg"}
                     storyGroupSize="large"
                     storyGroupTextTypeface={"Lobster1.4.otf"}
+                    storyFallbackIsEnabled = {true}
+                    storyCartIsEnabled = {true}
+                    onCartUpdate={ eventPayload => {
+                        if (eventPayload.event == "StoryProductAdded" ) {
+                            console.log(`[Storyly] default - StoryProductAdded ${JSON.stringify(eventPayload.event)} `)
+                            //This event sent when a product is added.
+                            productOnCarts = [...productOnCarts, {
+                                "item": {
+                                    "productId": eventPayload.change.item.productId,
+                                    "productGroupId": eventPayload.change.item.productGroupId,
+                                    "title": eventPayload.change.item.title,
+                                    "url": "eventPayload.change.item",
+                                    "desc": eventPayload.change.item.desc,
+                                    "price":eventPayload.change.item.price,
+                                    "imageUrls": eventPayload.change.item.imageUrls,
+                                    "variants": eventPayload.change.item.variants,
+                                    "salesPrice": eventPayload.change.item.salesPrice,
+                                },
+                                "totalPrice": eventPayload.change.item.price*eventPayload.change.quantity,
+                                "oldTotalPrice": eventPayload.change.item.price*eventPayload.change.quantity,
+                                "quantity": eventPayload.change.quantity
+                            }]
+                        }
+                        if (eventPayload.event == "StoryProductUpdated" ) {
+                            console.log(`[Storyly] default - StoryProductUpdated ${JSON.stringify(eventPayload.event)} `)
+                            //This event sent when a product is updated.
+                            // Update your cart
+                        }
+                        if (eventPayload.event == "StoryProductRemoved" ) {
+                            console.log(`[Storyly] default - StoryProductRemoved ${JSON.stringify(eventPayload.event)} `)
+                            //This event sent when a product is removed.
+                            // Remove items from your cart
+                        }  
+                        
+                    this.storyly.approveCartChange(eventPayload.responseId, {
+                        "items": productOnCarts,
+                        "totalPrice": eventPayload.change.item.price*eventPayload.change.quantity,
+                        "oldTotalPrice": eventPayload.change.item.price*eventPayload.change.quantity,
+                        "currency": "USD"
+                       });
+                    }}
                     onLoad={loadEvent => {
                         console.log(`[Storyly] default - onLoad`);
                     }}
