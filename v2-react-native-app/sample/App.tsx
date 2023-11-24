@@ -70,7 +70,8 @@ export default class App extends Component {
                     style={{ width: '100%', height: 120, marginTop: 15, }}
                     storylyId={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTIyNjIsImluc19pZCI6MTg3ODl9.Msjy7NE63EqsBW2J_LRn63MiqmCPFq3vIG2dY9Ur6qg"}
                     storyGroupSize="large"
-                    storyGroupTextTypeface={"Lobster1.4.otf"}
+                    //storyGroupTextTypeface={"Lobster1.4.otf"}
+                    storylySegments={["shoppable", "turkey", "germany"]}
                     storyFallbackIsEnabled = {true}
                     storyCartIsEnabled = {true}
                     onCartUpdate={ eventPayload => {
