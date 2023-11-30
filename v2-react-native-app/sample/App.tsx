@@ -61,6 +61,16 @@ const CustomPortraitView = ({ storyGroup }) => {
 var productOnCarts: any[] = [];
 
 export default class App extends Component {
+
+    componentDidMount() {
+        Linking.getInitialURL().then((url) => {
+          if (url) {
+            console.log('Initial url is: ' + url);
+            this.storyly.openStory(url)
+          }
+        }).catch(err => console.error('An error occurred', err));
+      }
+
     storyly: any;
     render() {
         return (

@@ -4,7 +4,7 @@ platform :ios, '11.0'
 target 'myStoryly' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'Storyly', "2.5.0"
+  pod 'Storyly', "2.5.1"
 
   # Pods for myStoryly
 

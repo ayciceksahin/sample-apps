@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     internal var openUrl: URL?
     internal var openUrlPayload: [AnyHashable : Any]?
     
-    let STORYLY_INSTANCE_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTMxMTUsImluc19pZCI6MTQyNDh9.8_WHJ9WFClC2UCi3MVBc4B4m1Hfce-LHrA0SUcnJiVo"
+    let STORYLY_INSTANCE_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU"
     
     let userPropertiesData = [
         "name" : "Sahin",
@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     ]
     
     @IBOutlet weak var storylyView: StorylyView!
+    
+    let openStoryURL = "gssapp://storyly?g=115711&s=1105275&instance=12582&play=sg"
     
     
     func openStory2(url:URL) {
@@ -53,8 +55,8 @@ class ViewController: UIViewController {
                             )
                            .setProductConfig(
                             config: StorylyProductConfig.Builder()
-                                .setProductFeedCountry(country: "")
-                                .setProductFeedLanguage(language: "")
+                                //.setProductFeedCountry(country: "")
+                                //.setProductFeedLanguage(language: "")
                                 .build()
                            )
                            .setLabels(labels: Set(arrayLiteral: "es", "country_russia", "french", "germany", "country-uk", "country-us","active", "14week" ))
@@ -68,8 +70,8 @@ class ViewController: UIViewController {
         self.storylyView.delegate = self // Override event functions
         // Do any additional setup after loading the view.
         self.storylyView.storylyInit.config.userData = userPropertiesData
-        //self.storlyView.openStory(payload: URL(string: openStoryURL)!)
-        //self.storylyView.openStory(storyGroupId: "51351", play: PlayMode.StoryGroup)
+        //self.storylyView.openStory(payload: URL(string: openStoryURL)!)
+        //self.storylyView.openStory(storyGroupId: "115711", play: PlayMode.StoryGroup)
         //self.storylyView.languageCode = "TR"
         
         

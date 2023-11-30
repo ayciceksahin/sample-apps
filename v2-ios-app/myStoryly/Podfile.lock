@@ -1,16 +1,16 @@
 PODS:
-  - Storyly (2.5.0)
+  - Storyly (2.5.1)
 
 DEPENDENCIES:
-  - Storyly (= 2.5.0)
+  - Storyly (= 2.5.1)
 
 SPEC REPOS:
   trunk:
     - Storyly
 
 SPEC CHECKSUMS:
-  Storyly: da60b08ab7137fdd0a6a19a97e5e419aaeaaf768
+  Storyly: 64819c4e4e932ae8f2f5ed8d53efbe25b2970899
 
-PODFILE CHECKSUM: a1bb6095b02d7642ca6e8ca8078f55a68406217c
+PODFILE CHECKSUM: 8e4d7b81fea21b4196cb00ca6fc5ba646f61b390
 
 COCOAPODS: 1.12.0

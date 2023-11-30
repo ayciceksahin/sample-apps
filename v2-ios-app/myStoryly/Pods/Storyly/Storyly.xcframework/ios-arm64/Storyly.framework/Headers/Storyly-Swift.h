@@ -300,6 +300,7 @@ SWIFT_CLASS_NAMED("MomentsUser")
 @end
 
 
+
 /// This data class represents the preview mode of stories.
 typedef SWIFT_ENUM_NAMED(NSInteger, PlayMode, "PlayMode", open) {
 /// This play mode continues to play all of the remaining story groups in the StorylyView
@@ -370,6 +371,8 @@ SWIFT_CLASS_NAMED("STRCartItem")
 @class STRProductVariant;
 
 /// Represents the storyly product
+/// \param accountId Unique identifier of the account 
+///
 /// \param productId Unique identifier of the product 
 ///
 /// \param productGroupId Unique identifier of the group which the product belongs 
@@ -1260,22 +1263,26 @@ typedef SWIFT_ENUM(NSInteger, StorylyEvent, open) {
   StorylyEventStoryLiked = 33,
 /// Sent when a user unlikes a Moments story
   StorylyEventStoryUnliked = 34,
+/// Sent when a product successfully added
+  StorylyEventStoryProductCartAdded = 35,
+/// Sent when a product added failed
+  StorylyEventStoryProductCartAddFailed = 36,
+/// Sent when product sheet is opened
+  StorylyEventStoryProductSheetOpened = 37,
 /// Sent when a product added
-  StorylyEventStoryProductAdded = 35,
+  StorylyEventStoryProductAdded = 38,
 /// Sent when a product updated
-  StorylyEventStoryProductUpdated = 36,
+  StorylyEventStoryProductUpdated = 39,
 /// Sent when product removed
-  StorylyEventStoryProductRemoved = 37,
+  StorylyEventStoryProductRemoved = 40,
 /// Sent when checkout button clicked
-  StorylyEventStoryCheckoutButtonClicked = 38,
+  StorylyEventStoryCheckoutButtonClicked = 41,
 /// Sent when cart button clicked from success sheet
-  StorylyEventStoryCartButtonClicked = 39,
+  StorylyEventStoryCartButtonClicked = 42,
 /// Sent when cart view clicked
-  StorylyEventStoryCartViewClicked = 40,
-/// Sent  when product catalog is clicked
-  StorylyEventStoryProductCatalogClicked = 41,
+  StorylyEventStoryCartViewClicked = 43,
 /// Sent  when product selected
-  StorylyEventStoryProductSelected = 42,
+  StorylyEventStoryProductSelected = 44,
 };
 
 
