@@ -5973,10 +5973,10 @@ statuses@~1.5.0:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
-storyly-react-native@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/storyly-react-native/-/storyly-react-native-2.4.1.tgz#ddafadb7926b6058d090a7674fcb3159ad9703f4"
-  integrity sha512-ZgF4IazX2RFIgLuh9Parw4uG1s1PL38pUUcVAJjxG2/tZHtJXF3ggRHDRZjNR54Qew9QhxOR7cM1JU5NBL1rKw==
+storyly-react-native@2.4.5:
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/storyly-react-native/-/storyly-react-native-2.4.5.tgz#a8b167b12fe375bcc6de410467d71a45d0e0c4b8"
+  integrity sha512-W+n3BL0Ft9cNRsX0uWSfOKV3J4Au9qNdRo0fFtCS/OoXd6UByciouobD+LVaj2n0vUfXDmCR9oZa9xYXFdRTaQ==
   dependencies:
     prop-types "^15.8.1"
 

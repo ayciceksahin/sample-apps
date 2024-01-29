@@ -301,6 +301,7 @@ SWIFT_CLASS_NAMED("MomentsUser")
 
 
 
+
 /// This data class represents the preview mode of stories.
 typedef SWIFT_ENUM_NAMED(NSInteger, PlayMode, "PlayMode", open) {
 /// This play mode continues to play all of the remaining story groups in the StorylyView
@@ -368,6 +369,21 @@ SWIFT_CLASS_NAMED("STRCartItem")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+/// Data class that represents the storyly product information
+/// \param productId The unique identifier for the product. 
+///
+/// \param productGroupId The unique identifier for the product group. 
+///
+SWIFT_CLASS_NAMED("STRProductInformation")
+@interface STRProductInformation : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable productId;
+@property (nonatomic, readonly, copy) NSString * _Nullable productGroupId;
+- (nonnull instancetype)initWithProductId:(NSString * _Nullable)productId productGroupId:(NSString * _Nullable)productGroupId OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class STRProductVariant;
 
 /// Represents the storyly product
@@ -405,7 +421,8 @@ SWIFT_CLASS_NAMED("STRProductItem")
 @property (nonatomic, readonly, copy) NSString * _Nonnull currency;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable imageUrls;
 @property (nonatomic, readonly, copy) NSArray<STRProductVariant *> * _Nullable variants;
-- (nonnull instancetype)initWithProductId:(NSString * _Nonnull)productId productGroupId:(NSString * _Nonnull)productGroupId title:(NSString * _Nonnull)title url:(NSString * _Nonnull)url description:(NSString * _Nullable)description price:(float)price salesPrice:(NSNumber * _Nullable)salesPrice currency:(NSString * _Nonnull)currency imageUrls:(NSArray<NSString *> * _Nullable)imageUrls variants:(NSArray<STRProductVariant *> * _Nullable)variants OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSString * _Nullable ctaText;
+- (nonnull instancetype)initWithProductId:(NSString * _Nonnull)productId productGroupId:(NSString * _Nonnull)productGroupId title:(NSString * _Nonnull)title url:(NSString * _Nonnull)url description:(NSString * _Nullable)description price:(float)price salesPrice:(NSNumber * _Nullable)salesPrice currency:(NSString * _Nonnull)currency imageUrls:(NSArray<NSString *> * _Nullable)imageUrls variants:(NSArray<STRProductVariant *> * _Nullable)variants ctaText:(NSString * _Nullable)ctaText OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -611,6 +628,10 @@ SWIFT_CLASS_NAMED("StoryGroup")
 @property (nonatomic, readonly, strong) MomentsUser * _Nullable momentsUser;
 /// Style of this group
 @property (nonatomic, readonly, strong) StoryGroupStyle * _Nullable style;
+/// Name of this group
+@property (nonatomic, readonly, copy) NSString * _Nullable name;
+/// Denotes whether story group is nudge or not
+@property (nonatomic, readonly) BOOL nudge;
 /// StoryGroup initialization
 /// \param id ID of the story group
 ///
@@ -636,7 +657,11 @@ SWIFT_CLASS_NAMED("StoryGroup")
 ///
 /// \param style Style of this group
 ///
-- (nonnull instancetype)initWithId:(NSString * _Nonnull)id title:(NSString * _Nonnull)title iconUrl:(NSURL * _Nullable)iconUrl thematicIconUrls:(NSDictionary<NSString *, NSURL *> * _Nullable)thematicIconUrls coverUrl:(NSURL * _Nullable)coverUrl index:(NSInteger)index seen:(BOOL)seen stories:(NSArray<Story *> * _Nonnull)stories pinned:(BOOL)pinned type:(enum StoryGroupType)type momentsUser:(MomentsUser * _Nullable)momentsUser style:(StoryGroupStyle * _Nullable)style OBJC_DESIGNATED_INITIALIZER;
+/// \param name Name of this group
+///
+/// \param nudge Denotes whether story group is nudge or not
+///
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id title:(NSString * _Nonnull)title iconUrl:(NSURL * _Nullable)iconUrl thematicIconUrls:(NSDictionary<NSString *, NSURL *> * _Nullable)thematicIconUrls coverUrl:(NSURL * _Nullable)coverUrl index:(NSInteger)index seen:(BOOL)seen stories:(NSArray<Story *> * _Nonnull)stories pinned:(BOOL)pinned type:(enum StoryGroupType)type momentsUser:(MomentsUser * _Nullable)momentsUser style:(StoryGroupStyle * _Nullable)style name:(NSString * _Nullable)name nudge:(BOOL)nudge OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -718,12 +743,14 @@ typedef SWIFT_ENUM_NAMED(NSInteger, StoryGroupType, "StoryGroupType", open) {
   StoryGroupTypeMomentsBlock = 3,
 /// Denotes story group type is Live
   StoryGroupTypeLive = 4,
+/// Denotes story group type is Product
+  StoryGroupTypeAutomatedShoppable = 5,
 };
 
 @class NSCoder;
 
 /// This class defines the parent class of the custom styling StoryGroupView classes
-SWIFT_CLASS("_TtC7Storyly14StoryGroupView")
+SWIFT_CLASS_NAMED("StoryGroupView")
 @interface StoryGroupView : UIView
 /// This function fills the StoryGroupView components
 - (void)populateView:(StoryGroup * _Nullable)storyGroup;
@@ -733,7 +760,7 @@ SWIFT_CLASS("_TtC7Storyly14StoryGroupView")
 
 
 /// This protocol defines the structure of StoryGroupViewFactory
-SWIFT_PROTOCOL("_TtP7Storyly21StoryGroupViewFactory_")
+SWIFT_PROTOCOL_NAMED("StoryGroupViewFactory")
 @protocol StoryGroupViewFactory
 /// This function is called when a new view is requested
 - (StoryGroupView * _Nonnull)createView SWIFT_WARN_UNUSED_RESULT;
@@ -830,9 +857,12 @@ SWIFT_CLASS_NAMED("StoryPollComponent")
 
 
 /// This class defines the structure of StorylyPriceConverter
-SWIFT_CLASS("_TtC7Storyly19StoryPriceFormatter")
-@interface StoryPriceFormatter : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_PROTOCOL_NAMED("StoryPriceFormatter")
+@protocol StoryPriceFormatter
+/// This function format price and currency symbol
+/// @param price Represents the numerical value of the price
+/// @param currency Represents the currency symbol
+- (NSString * _Nullable)format:(NSNumber * _Nullable)price :(NSString * _Nonnull)currency SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1072,10 +1102,6 @@ SWIFT_CLASS_NAMED("Builder")
 /// \param data [String String] instance to set
 ///
 - (StorylyConfigBuilder * _Nonnull)setUserData:(NSDictionary<NSString *, NSString *> * _Nonnull)data SWIFT_WARN_UNUSED_RESULT;
-/// This function allows you to set storylyPayload information to get moments groups for the user
-/// \param payload String? instance to set 
-///
-- (StorylyConfigBuilder * _Nonnull)setStorylyPayload:(NSString * _Nullable)payload SWIFT_WARN_UNUSED_RESULT;
 /// This function allows you to set IsTestMode which defines whether it is a test device or not. If true, test groups are sent from the server.
 /// \param isTest Bool instance to set 
 ///
@@ -1088,6 +1114,10 @@ SWIFT_CLASS_NAMED("Builder")
 /// \param config StorylyShareConfig instance to set 
 ///
 - (StorylyConfigBuilder * _Nonnull)setShareConfig:(StorylyShareConfig * _Nonnull)config SWIFT_WARN_UNUSED_RESULT;
+/// This function allows you to set localization to Storyly, sample convention is en-GB.
+/// \param locale Locale for localization 
+///
+- (StorylyConfigBuilder * _Nonnull)setLocale:(NSString * _Nullable)locale SWIFT_WARN_UNUSED_RESULT;
 /// This function builds StorylyConfig with the current properties
 ///
 /// returns:
@@ -1473,7 +1503,7 @@ SWIFT_CLASS_NAMED("StorylyProductConfig")
 /// Builder class of StorylyProductConfig
 SWIFT_CLASS_NAMED("Builder")
 @interface StorylyProductConfigBuilder : NSObject
-- (StorylyProductConfigBuilder * _Nonnull)setPriceFormatter:(StoryPriceFormatter * _Nonnull)formatter SWIFT_WARN_UNUSED_RESULT;
+- (StorylyProductConfigBuilder * _Nonnull)setPriceFormatter:(id <StoryPriceFormatter> _Nonnull)formatter SWIFT_WARN_UNUSED_RESULT;
 /// This function allows you to set enability of hydration from feed data from backend
 /// \param isEnabled Bool instance to set 
 ///
@@ -1482,14 +1512,10 @@ SWIFT_CLASS_NAMED("Builder")
 /// \param isEnabled Bool instance to set 
 ///
 - (StorylyProductConfigBuilder * _Nonnull)setCartEnabled:(BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
-/// This function allows you to set country of product feed
-/// \param country country 
+/// This function allows you to set user specific product feed
+/// \param feed product feed to set 
 ///
-- (StorylyProductConfigBuilder * _Nonnull)setProductFeedCountry:(NSString * _Nullable)country SWIFT_WARN_UNUSED_RESULT;
-/// This function allows you to set language of product feed
-/// \param language language 
-///
-- (StorylyProductConfigBuilder * _Nonnull)setProductFeedLanguage:(NSString * _Nullable)language SWIFT_WARN_UNUSED_RESULT;
+- (StorylyProductConfigBuilder * _Nonnull)setProductFeed:(NSDictionary<NSString *, NSArray<STRProductItem *> *> * _Nullable)feed SWIFT_WARN_UNUSED_RESULT;
 /// This function builds StorylyProductConfig with the current properties
 ///
 /// returns:
@@ -1507,9 +1533,9 @@ SWIFT_PROTOCOL_NAMED("StorylyProductDelegate")
 /// This function will notify you to get ids of products
 /// \param storylyView StorylyView instance in which the user interacted with a component
 ///
-/// \param productIds Found product ids in stories
+/// \param products Found list of product information in stories
 ///
-- (void)storylyHydration:(StorylyView * _Nonnull)storylyView productIds:(NSArray<NSString *> * _Nonnull)productIds;
+- (void)storylyHydration:(StorylyView * _Nonnull)storylyView products:(NSArray<STRProductInformation *> * _Nonnull)products;
 /// This function will notify you about all Storyly events and let you to send these events to
 /// specific data platforms
 /// \param storylyView StorylyView instance in which the event is received
@@ -1728,9 +1754,6 @@ SWIFT_CLASS_NAMED("StorylyView")
 @property (nonatomic, weak) id <StorylyAdViewProvider> _Nullable storylyAdViewProvider;
 @property (nonatomic, copy) NSString * _Nullable accessibilityLabel;
 @property (nonatomic, copy) NSString * _Nullable accessibilityIdentifier;
-/// This property allows you to change the language shown in storyly elements.
-/// Current supported langeuages are: TR, ES, RU, DE, FR, EN
-@property (nonatomic, copy) IBInspectable NSString * _Nonnull languageCode;
 /// This property allows you to add custom moments view to the
 /// beginning of the storyly bar such as ‘add your story’ or ‘user’s own stories’
 @property (nonatomic, copy) NSArray<MomentsItem *> * _Nullable momentsItems;
@@ -1755,6 +1778,17 @@ SWIFT_CLASS_NAMED("StorylyView")
 - (void)resumeStoryWithAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
 - (void)pauseStoryWithAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
 - (void)closeStoryWithAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
+/// \code
+/// * This function allows you to hydrate your products 
+/// *
+/// * - Parameter products: list of products to hydrate products
+///
+/// \endcode
+- (void)hydrateProductsWithProducts:(NSArray<STRProductItem *> * _Nonnull)products;
+/// This function allows you to update your cart
+/// \param cart A STRCart objects to update cart
+///
+- (void)updateCartWithCart:(STRCart * _Nonnull)cart;
 /// This function allows you to open your custom external view
 /// \param externalActionView External view to show
 ///
@@ -1780,6 +1814,32 @@ SWIFT_CLASS_NAMED("StorylyView")
 
 
 
+
+
+SWIFT_PROTOCOL_NAMED("XamarinStoryGroup")
+@protocol XamarinStoryGroup
+/// <ul>
+///   <li>
+///     This function is called when a new view is requested
+///   </li>
+/// </ul>
+- (UIView * _Nonnull)createView SWIFT_WARN_UNUSED_RESULT;
+/// <ul>
+///   <li>
+///     This function fills the StoryGroupView components
+///   </li>
+/// </ul>
+- (void)populateView:(StoryGroup * _Nullable)storyGroup;
+@end
+
+
+SWIFT_CLASS_NAMED("XamarinStoryGroupView")
+@interface XamarinStoryGroupView : StoryGroupView
+- (nonnull instancetype)initWithXamarinStoryGroup:(id <XamarinStoryGroup> _Nullable)xamarinStoryGroup OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)populateView:(StoryGroup * _Nullable)storyGroup;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
 
 #endif
 #if defined(__cplusplus)

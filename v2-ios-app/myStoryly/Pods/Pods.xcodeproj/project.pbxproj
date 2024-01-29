@@ -16,6 +16,7 @@
 			dependencies = (
 			);
 			name = Storyly;
+			productName = Storyly;
 		};
 /* End PBXAggregateTarget section */
 
@@ -64,7 +65,7 @@
 		1B9FB732896A8B6E20EAAB375E32ABBB /* Pods-myStoryly-myStorylyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myStoryly-myStorylyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1E49725629B429026C7A1BBC359211B6 /* Pods-myStoryly-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-myStoryly-frameworks.sh"; sourceTree = "<group>"; };
 		295C73E964D07F09906F965B152665D0 /* Storyly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Storyly.release.xcconfig; sourceTree = "<group>"; };
-		309AC6F4072641E70392D658C657EBFD /* Pods-myStoryly */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-myStoryly"; path = Pods_myStoryly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		309AC6F4072641E70392D658C657EBFD /* Pods_myStoryly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myStoryly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C3B866DE4C4D3D0F42A1222C12A5A7 /* Pods-myStoryly-myStorylyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-myStoryly-myStorylyUITests.modulemap"; sourceTree = "<group>"; };
 		462711E3EF1E55CD6A36E7CEBD4473C5 /* Pods-myStoryly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myStoryly.debug.xcconfig"; sourceTree = "<group>"; };
 		50844CFC2E5226B4A66F6DB5F7BF62DE /* Pods-myStorylyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-myStorylyTests.modulemap"; sourceTree = "<group>"; };
@@ -75,10 +76,10 @@
 		7CB8E54DBF277744C3023E0E06B0CFF7 /* Pods-myStoryly-myStorylyUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-myStoryly-myStorylyUITests-umbrella.h"; sourceTree = "<group>"; };
 		83FFDC3C622FFABAC46FE8B9A0BCB77A /* Pods-myStoryly-myStorylyUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-myStoryly-myStorylyUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8504DCFE3EE77643A2CDD67B802AF59B /* Pods-myStoryly-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-myStoryly-Info.plist"; sourceTree = "<group>"; };
-		8533F8EE959D57190A8485AB8C84FB07 /* Storyly.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = Storyly.xcframework; sourceTree = "<group>"; };
+		8533F8EE959D57190A8485AB8C84FB07 /* Storyly.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = Storyly.xcframework; sourceTree = "<group>"; };
 		905F8C56708ABEA461DE40222A173CC0 /* Pods-myStorylyTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-myStorylyTests-Info.plist"; sourceTree = "<group>"; };
 		98A481159146CCC932CE61CEDD7517DB /* Storyly-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Storyly-xcframeworks.sh"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A05E28787A805979B41C96D257715820 /* Pods-myStoryly-myStorylyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myStoryly-myStorylyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3AD896DFF4D7C379045F4A126B2E6B1 /* Pods-myStoryly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myStoryly.release.xcconfig"; sourceTree = "<group>"; };
 		A5EF2274DCA976CACB37E117C15EC4FC /* Pods-myStoryly-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-myStoryly-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 				F9F5739C29697F0BF0FCE7A1084B8EEE /* Frameworks */,
 				BE046992A652B795C36BF9F5FC78258D /* Support Files */,
 			);
-			name = Storyly;
 			path = Storyly;
 			sourceTree = "<group>";
 		};
@@ -160,7 +160,7 @@
 		782822B36B4BA9DA13F70D7B62536332 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				309AC6F4072641E70392D658C657EBFD /* Pods-myStoryly */,
+				309AC6F4072641E70392D658C657EBFD /* Pods_myStoryly.framework */,
 				C6C6E1A92AE1C9ED529604A1091428BF /* Pods-myStoryly-myStorylyUITests */,
 				1A2AEAA314A17A067361DFE1A74CD61F /* Pods-myStorylyTests */,
 			);
@@ -301,7 +301,7 @@
 			);
 			name = "Pods-myStoryly";
 			productName = Pods_myStoryly;
-			productReference = 309AC6F4072641E70392D658C657EBFD /* Pods-myStoryly */;
+			productReference = 309AC6F4072641E70392D658C657EBFD /* Pods_myStoryly.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7297B8C9DE1B0958A6B62D9A08E2FC57 /* Pods-myStorylyTests */ = {

@@ -43,7 +43,7 @@ const CustomPortraitView = ({ storyGroup }) => {
 
                         <View style={{ flexDirection:'column', width: 90, marginLeft: 5, height: "80%", alignItems: 'flex-end', justifyContent: 'flex-end'}}>
                         <View style={{ width: "100%", marginLeft: 5, height: "70%", alignItems: 'center', justifyContent: 'flex-end'}}>
-                              <Image style={{ width: 60, height: 60, marginTop:5, borderRadius: 30 }} source={ HOVER_IMG } />
+                              <Image style={{ width: 60, height: 60, marginTop:5, borderRadius: 30 }} source={{ uri:storyGroup.iconUrl} } />
                           </View>
                           <View style={{ width: "100%", marginLeft: 5, height: "30%", alignItems: 'center', justifyContent: 'flex-end'}}>
                               <Text style={{ marginBottom: 5,flexWrap: 'wrap', width: "90%", textAlign: 'center', fontWeight: 'bold', fontSize: 12, color: "white" }}>{storyGroup.title}</Text>
@@ -76,9 +76,19 @@ export default class App extends Component {
         return (
             <SafeAreaView>
                  <Storyly
-                    ref={ref => { this.storyly = ref }}
-                    style={{ width: '100%', height: 120, marginTop: 15, }}
-                    storylyId={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTIyNjIsImluc19pZCI6MTg3ODl9.Msjy7NE63EqsBW2J_LRn63MiqmCPFq3vIG2dY9Ur6qg"}
+                    ref={ref =>
+                         { this.storyly = ref 
+                            if (this.storyly != null) {
+                                
+                            }
+                        }}
+                    style={{ width: '100%', height: convertToNative(178), marginTop: 10, marginBottom: 10}}
+                     storyGroupViewFactory={{
+                        width: convertToNative(100),
+                        height: convertToNative(178),
+                        customView: CustomPortraitView
+                    }}
+                    storylyId={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjIzODAsImFwcF9pZCI6MTY3MDgsImluc19pZCI6MTg3NTR9.sG29EQm8qxGNm4ifKVrcbw0O3eYWoKcS5jzzJBQR3lw"}
                     storyGroupSize="large"
                     //storyGroupTextTypeface={"Lobster1.4.otf"}
                     storylySegments={["shoppable", "turkey", "germany"]}

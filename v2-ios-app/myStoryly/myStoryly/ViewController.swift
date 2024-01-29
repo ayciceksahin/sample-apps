@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     internal var openUrl: URL?
     internal var openUrlPayload: [AnyHashable : Any]?
     
-    let STORYLY_INSTANCE_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU"
+    let STORYLY_INSTANCE_TOKEN =             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTMxMTUsImluc19pZCI6MTQyNDh9.8_WHJ9WFClC2UCi3MVBc4B4m1Hfce-LHrA0SUcnJiVo"
     
     let userPropertiesData = [
         "name" : "Sahin",
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         "number_of_items_left_in_cart": "2",
         "username" : "John",
         "gift_amount" : "35%",
-        "cover_img" : "https://cdn.pixabay.com/photo/2022/10/15/21/23/cat-7523894_1280.jpg"
+        "cover_image" : "https://www.ros.net.pl/GalleryImages/product_photos/1280_720/264055_357671_1280_720_86849.png"
     ]
     
     @IBOutlet weak var storylyView: StorylyView!
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
                            )
                            .setLabels(labels: Set(arrayLiteral: "es", "country_russia", "french", "germany", "country-uk", "country-us","active", "14week" ))
                            .setTestMode(isTest: true)
-                           //.setCustomParameter(parameter: "")
+                           .setCustomParameter(parameter: "8ad9a66b-f4c2-4504-ab2e-463e67e832e4")
                            .build()
         )
         
