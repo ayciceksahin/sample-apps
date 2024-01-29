@@ -39,9 +39,15 @@ class MainActivity : AppCompatActivity() {
         val storylyView = findViewById<StorylyView>(R.id.storyly_view)
         if (storylyFlag == true) {
             storylyView.storylyInit = StorylyInit(
-                "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NTIsImluc19pZCI6MTMzMDF9.0VSpIaKA9IzeTZ1CICJOkINWyENP7ROPN_d5Qo5yEo4",
+                "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU",
+                //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NTIsImluc19pZCI6MTMzMDF9.0VSpIaKA9IzeTZ1CICJOkINWyENP7ROPN_d5Qo5yEo4",
                 StorylyConfig.Builder()
                     .setLabels(labels = setOf("hub"))
+                    .setCustomParameter("62340800")
+                    .setUserData(mapOf(
+                        "name" to "Sahin",
+                        "user_name" to "sahin",
+                    ))
                     .build()
             )
         }

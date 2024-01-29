@@ -1,17 +1,24 @@
 package com.example.shoppingapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import com.appsamurai.storyly.*
 import com.appsamurai.storyly.analytics.StorylyEvent
+import com.appsamurai.storyly.analytics.StorylyEvent.*
 import com.appsamurai.storyly.config.StorylyConfig
 import com.appsamurai.storyly.config.StorylyProductConfig
 import com.appsamurai.storyly.config.styling.group.StorylyStoryGroupStyling
 import com.appsamurai.storyly.config.styling.story.StorylyStoryStyling
+import com.appsamurai.storyly.data.managers.product.STRCart
+import com.appsamurai.storyly.data.managers.product.STRCartEventResult
+import com.appsamurai.storyly.data.managers.product.STRCartItem
+import com.appsamurai.storyly.data.managers.product.STRProductInformation
 import com.example.shoppingapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,18 +36,12 @@ class MainActivity : AppCompatActivity() {
         val storylyView = findViewById<StorylyView>(R.id.storyly_view)
 
         storylyView.storylyInit = StorylyInit(
-            //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjU5MDgsImFwcF9pZCI6MTEwNDEsImluc19pZCI6MTE3NTZ9.YM8G9WYyuJW9QLuJMxO04-Nv0pa3-w-S_cH7rSa4fSY",
-            //WilliamHill"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjg1NjUsImFwcF9pZCI6MTQ2MDEsImluc19pZCI6MTU5MzZ9.dzaPwAxINtVo-BtK8zBHtVxJNuX0fwlj_HMRzHvPYnU",
-            //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTMxMTUsImluc19pZCI6MTQyNDh9.8_WHJ9WFClC2UCi3MVBc4B4m1Hfce-LHrA0SUcnJiVo",
-            //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjE4OTEsImFwcF9pZCI6MTU1MSwiaW5zX2lkIjoxNjAyfQ.goOlDWhV2ikJwJd3tvx2bKg5Ot0Qu_cDvMk0MbDpm9E",
-            //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjE5MjYsImFwcF9pZCI6MTU4MywiaW5zX2lkIjoxNjM1fQ.iI0yUR2WIAyXNvIgQuVDIle-42sPNcno6jaQHAxNko0",
-            //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjEwNTY5LCJhcHBfaWQiOjE1ODg2LCJpbnNfaWQiOjE3NDIwfQ.vM9PyK5NlmKwS8IibZZgTJ2fmSoK1h7yf_zfUdeH-BI",
-            //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjg2MzcsImFwcF9pZCI6MTM2ODMsImluc19pZCI6MTQ5MDZ9.esNPIaerwFGweMMxi16W4CrjPb2ZDkQ42yA6U3DdIzA",
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTMxMTUsImluc19pZCI6MTQyNDh9.8_WHJ9WFClC2UCi3MVBc4B4m1Hfce-LHrA0SUcnJiVo",
+            //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU",
             StorylyConfig.Builder()
                 .setStoryGroupStyling(
                     StorylyStoryGroupStyling.Builder()
-                        //.setIconHeight(200)
+                        //.setIconHeight(300)
                         //.setIconWidth(500)
                         //.setIconCornerRadius(30)
                         .setSize(StoryGroupSize.Large)
@@ -48,8 +49,7 @@ class MainActivity : AppCompatActivity() {
                 )
                 .setProductConfig(
                     StorylyProductConfig.Builder()
-                        .setProductFeedLanguage("")
-                        .setProductFeedCountry("")
+                        .setCartAvailability(true)
                         .build()
                 )
                 .setStoryStyling(
@@ -57,9 +57,12 @@ class MainActivity : AppCompatActivity() {
                         //.setHeaderIconVisibility(isVisible = true)
                         .build()
                 )
-                //.setLabels(labels = setOf("english", "turkey", "french", "test", "default"))
+                //.setLayoutDirection(StorylyLayoutDirection.RTL)
+                .setTestMode(true)
+                .setLabels(labels = setOf("english", "turkey", "french", "test", "default","homepage"))
                 .setCustomParameter("3")
                 .setUserData(mapOf(
+                    "name" to "Sahin",
                     "user_name" to "Saiful",
                     "recommend_make" to "BMW",
                     "recommend_model" to "3 series",
@@ -71,6 +74,76 @@ class MainActivity : AppCompatActivity() {
 
 
         //storylyView.openStory("93337", "855786", PlayMode.Default)
+
+        val items = mutableListOf<STRCartItem>()
+
+        val productListener = object : StorylyProductListener {
+            override fun storylyHydration(storylyView: StorylyView, products: List<STRProductInformation>) {
+                Log.d("TAG", "storylyHydration: ${products.toList()}")
+            }
+
+            override fun storylyEvent(storylyView: StorylyView, event: StorylyEvent) {
+                when (event){
+                    StoryCheckoutButtonClicked -> {
+                        Log.d("Shopping", "StoryCheckoutButtonClicked")
+                    }
+                    StoryCartButtonClicked -> {
+                        Log.d("Shopping", "StoryCartButtonClicked")
+                    }
+                    StoryCartViewClicked -> {
+                        Log.d("Shopping", "StoryCartViewClicked")
+                    }
+                    StoryProductSelected -> {
+                        Log.d("Shopping", "StoryProductSelected")
+                    }
+                    else -> {}
+                }
+            }
+
+            override fun storylyUpdateCartEvent(storylyView: StorylyView, event: StorylyEvent, cart: STRCart?, change: STRCartItem?, onSuccess: ((STRCart?) -> Unit)?, onFail: ((STRCartEventResult) -> Unit)?) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    items.removeIf { it.item.productId == change?.item?.productId }
+                }
+
+                if (event != StoryProductRemoved) {
+                    val itemPrice = (change?.item?.salesPrice ?: change?.item?.price ?: 0f) * (change?.quantity ?: 0)
+                    val itemOldPrice = (change?.item?.price ?: 0f) * (change?.quantity ?: 0)
+
+                    change?.copy(totalPrice = itemPrice, oldTotalPrice = itemOldPrice)?.let { items.add(it) }
+                }
+
+                val cartPrice = items.toList().sumOf { it.totalPrice?.toInt() ?: 0 }
+                val cartOldPrice = items.toList().sumOf { it.oldTotalPrice?.toInt() ?: 0 }
+
+                Handler().postDelayed({
+                    onSuccess?.invoke(STRCart(items = items, oldTotalPrice = cartOldPrice.toFloat(), totalPrice = cartPrice.toFloat(), currency = "USD"))
+                }, 500)
+
+                when (event){
+                    StorylyEvent.StoryProductAdded -> {
+                        Log.d("Shopping", "StoryProductAdded")
+                        //This event sent when a product is added.
+                    }
+                    StorylyEvent.StoryProductUpdated -> {
+                        Log.d("Shopping", "StoryProductUpdated")
+                        //This event sent when a product is updated.
+                    }
+                    StorylyEvent.StoryProductRemoved -> {
+                        Log.d("Shopping", "StoryProductRemoved")
+                        //This event sent when a product is removed.
+                    }
+
+                    else -> {}
+                }
+
+                Log.d("Shoppable", "ShoppableEvent: ${event}")
+                Log.d("Shoppable", "ShoppableCart: ${cart}")
+                Log.d("Shoppable", "ShoppableChange: ${change}")
+
+            }
+        }
+
+        storylyView.storylyProductListener = productListener
 
         storylyView.storylyListener = object : StorylyListener {
             var initialLoad = true
@@ -193,9 +266,11 @@ class MainActivity : AppCompatActivity() {
                 }*/
 
                 //Log.d("Storyly","customPayload:${emojiComponent?.customPayload} ")
-                Log.d("event----->","StoryPaused:${StorylyEvent.StoryPaused} ") // You can track StoryViewed event.
-                Log.d("event----->","StoryViewed:${StorylyEvent.StoryViewed} ") // You can track StoryViewed event.
-                Log.d ("Event", "PromoCode:${StorylyEvent.StoryPromoCodeCopied}")
+                Log.d("event----->","StoryPaused:$StoryPaused ") // You can track StoryViewed event.
+                Log.d("event----->","StoryViewed:$StoryViewed ") // You can track StoryViewed event.
+                Log.d ("Event", "PromoCode:$StoryPromoCodeCopied")
+                Log.d("QUIZ----->","StoryQuizComponent:${quizComponent?.title} ") // You can track StoryViewed event.
+
 
 
 
@@ -203,7 +278,7 @@ class MainActivity : AppCompatActivity() {
 
 
                 Log.d("--------------storyly-------------------","story:${story?.seen} and ${story?.uniqueId}")
-                Log.d("--------------Index-------------------","storyGroupIndex: ${storyGroup?.index} and storyIndex: ${story?.index}")
+                Log.d("--------------Index-------------------","storyGroupIndex: ${storyGroup?.name} and storyIndex: ${story?.index}")
 
             }
 
