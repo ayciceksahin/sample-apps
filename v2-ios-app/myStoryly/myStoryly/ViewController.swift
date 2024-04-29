@@ -12,7 +12,9 @@ class ViewController: UIViewController {
     internal var openUrl: URL?
     internal var openUrlPayload: [AnyHashable : Any]?
     
-    let STORYLY_INSTANCE_TOKEN =             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTMxMTUsImluc19pZCI6MTQyNDh9.8_WHJ9WFClC2UCi3MVBc4B4m1Hfce-LHrA0SUcnJiVo"
+    var cartItems: [STRCartItem] = []
+    
+    let STORYLY_INSTANCE_TOKEN =             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjkzNDcsImFwcF9pZCI6MTQyMTMsImluc19pZCI6MTU0ODJ9.lxOQ1X7HzhMWP4ulh5UyMpUhhC0CpE4er2wEwpYWFGo"
     
     let userPropertiesData = [
         "name" : "Sahin",
@@ -57,9 +59,11 @@ class ViewController: UIViewController {
                             config: StorylyProductConfig.Builder()
                                 //.setProductFeedCountry(country: "")
                                 //.setProductFeedLanguage(language: "")
+                                .setFallbackAvailability(isEnabled: true)
+                                .setCartEnabled(isEnabled: true)
                                 .build()
                            )
-                           .setLabels(labels: Set(arrayLiteral: "es", "country_russia", "french", "germany", "country-uk", "country-us","active", "14week" ))
+                           .setLabels(labels: Set(arrayLiteral: "es", "country_russia", "french", "germany", "country-uk", "country-us","active", "de" ))
                            .setTestMode(isTest: true)
                            .setCustomParameter(parameter: "8ad9a66b-f4c2-4504-ab2e-463e67e832e4")
                            .build()
@@ -68,6 +72,7 @@ class ViewController: UIViewController {
         self.storylyView.rootViewController = self
         // the class(indicated with self) extends StorylyDelegate
         self.storylyView.delegate = self // Override event functions
+        self.storylyView.productDelegate = self
         // Do any additional setup after loading the view.
         self.storylyView.storylyInit.config.userData = userPropertiesData
         //self.storylyView.openStory(payload: URL(string: openStoryURL)!)
@@ -78,6 +83,7 @@ class ViewController: UIViewController {
     }
 
 }
+
 
 extension ViewController : StorylyDelegate {
     
@@ -101,12 +107,73 @@ extension ViewController : StorylyDelegate {
                                 story: Storyly.Story) {
         // story.media.actionUrl is important field
         print("[storyly] IntegrationViewController:storylyActionClicked - story action_url {\(story.media.actionUrl ?? "")}")
+        
+        self.storylyView.closeStory(animated: true)
                 
         guard let url = URL(string: story.media.actionUrl! ) else {
             return
                 }
         UIApplication.shared.openURL(url)
     }
+}
+
+
+extension ViewController: StorylyProductDelegate {
+    
+    func storylyHydration(_ storylyView: StorylyView, products: [STRProductInformation]) {
+        //* Data class that represents the storyly product information
+        }
+        
+        func storylyEvent(_ storylyView: StorylyView,
+                                         event: StorylyEvent) {
+            //print("Shopping: \(event.stringValue)")
+            if (event == StorylyEvent.StoryCheckoutButtonClicked ) {
+                print("Shopping: StoryCheckoutButtonClicked")
+            }
+            if (event == StorylyEvent.StoryCartButtonClicked ) {
+                print("Shopping: StoryCartButtonClicked")
+            }
+            if (event == StorylyEvent.StoryCartViewClicked ) {
+                print("Shopping: StoryCartViewClicked")
+            }
+            if (event == StorylyEvent.StoryProductSelected ) {
+                print("Shopping: StoryProductSelected")
+            }
+            
+        }
+         
+        func storylyUpdateCartEvent(storylyView: StorylyView, event: StorylyEvent, cart: STRCart?, change: STRCartItem?, onSuccess: ((STRCart?) -> Void)?, onFail: ((STRCartEventResult) -> Void)?) {
+            cartItems.removeAll { $0.item.productId == change?.item.productId && $0.item.variants == change?.item.variants }
+            
+            guard let change = change else { return }
+                    
+            let totalPrice = Int(truncating: change.item.salesPrice ?? 0) * change.quantity
+            let oldTotalPrice = change.item.price * Float(change.quantity)
+     
+            let item = STRCartItem(item: change.item, quantity: change.quantity, totalPrice: totalPrice as NSNumber, oldTotalPrice: oldTotalPrice as NSNumber)
+                
+            if change.quantity > 0 {
+                cartItems.append(item)
+            }
+               
+            let carTotalPrice = self.cartItems.compactMap { Int(truncating: $0.totalPrice ?? 0) }.reduce(0, +)
+            let carOldTotalPrice = self.cartItems.compactMap { Int(truncating: $0.oldTotalPrice ?? 0)  }.reduce(0, +)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1_000), execute: {
+                onSuccess?(STRCart(items: self.cartItems, totalPrice: Float(carTotalPrice), oldTotalPrice: carOldTotalPrice as NSNumber, currency: "USD"))
+            })
+            
+            if (event == StorylyEvent.StoryProductAdded) {
+                print("Shopping: StoryProductAdded")
+            }
+            if (event == StorylyEvent.StoryProductUpdated) {
+                print("Shopping: StoryProductUpdated")
+            }
+            if (event == StorylyEvent.StoryProductRemoved) {
+                print("Shopping: StoryProductRemoved")
+            }
+        }
+    
 }
 
 

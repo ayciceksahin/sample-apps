@@ -1,0 +1,3 @@
+package com.appsamurai.storyly
+
+const val STORYLY_INSTANCE_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjU5MzcsImFwcF9pZCI6MTE3NDIsImluc19pZCI6MTI1Nzh9.a3JazhdkA8oKxqB_rMiiZ8cBku9oymbN8-IaNfrQ_aQ"

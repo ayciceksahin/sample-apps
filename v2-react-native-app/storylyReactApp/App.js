@@ -67,7 +67,7 @@ export default class App extends Component {
                  <Storyly
                     ref={ref => { this.storyly = ref }}
                     style={{ width: '100%', height: convertToNative(178), marginTop: 10, marginBottom: 10}}
-                    storylyId={"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU"}
+                    storylyId={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjExNTE0LCJhcHBfaWQiOjE3MjI1LCJpbnNfaWQiOjE5MTc4fQ.XZ15LXJqlGcDNtVadA-NzrWNkHNIum_akqh_ddARUnY"}
                     storyGroupViewFactory={{
                        width: convertToNative(100),
                        height: convertToNative(178),

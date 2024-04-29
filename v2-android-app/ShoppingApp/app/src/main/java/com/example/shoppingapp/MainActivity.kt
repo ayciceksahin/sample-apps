@@ -13,12 +13,15 @@ import com.appsamurai.storyly.analytics.StorylyEvent
 import com.appsamurai.storyly.analytics.StorylyEvent.*
 import com.appsamurai.storyly.config.StorylyConfig
 import com.appsamurai.storyly.config.StorylyProductConfig
+import com.appsamurai.storyly.config.StorylyShareConfig
 import com.appsamurai.storyly.config.styling.group.StorylyStoryGroupStyling
 import com.appsamurai.storyly.config.styling.story.StorylyStoryStyling
 import com.appsamurai.storyly.data.managers.product.STRCart
 import com.appsamurai.storyly.data.managers.product.STRCartEventResult
 import com.appsamurai.storyly.data.managers.product.STRCartItem
 import com.appsamurai.storyly.data.managers.product.STRProductInformation
+import com.appsamurai.storyly.data.managers.product.STRProductItem
+import com.appsamurai.storyly.data.managers.product.STRProductVariant
 import com.example.shoppingapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -36,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         val storylyView = findViewById<StorylyView>(R.id.storyly_view)
 
         storylyView.storylyInit = StorylyInit(
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTMxMTUsImluc19pZCI6MTQyNDh9.8_WHJ9WFClC2UCi3MVBc4B4m1Hfce-LHrA0SUcnJiVo",
-            //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU",
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU",
             StorylyConfig.Builder()
                 .setStoryGroupStyling(
                     StorylyStoryGroupStyling.Builder()
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                 .setProductConfig(
                     StorylyProductConfig.Builder()
                         .setCartAvailability(true)
+                        .setProductFeed(productFeed)
                         .build()
                 )
                 .setStoryStyling(
@@ -57,23 +60,25 @@ class MainActivity : AppCompatActivity() {
                         //.setHeaderIconVisibility(isVisible = true)
                         .build()
                 )
+                /*.setShareConfig(
+                    StorylyShareConfig.Builder()
+                        .setShareUrl("storyly.io/v2/share/{story_id}")
+                        .build()
+                )*/
                 //.setLayoutDirection(StorylyLayoutDirection.RTL)
                 .setTestMode(true)
-                .setLabels(labels = setOf("english", "turkey", "french", "test", "default","homepage"))
-                .setCustomParameter("3")
+                //.setLabels(labels = setOf("english", "turkey", "french", "de", "default","homepage"))
+                .setCustomParameter("__494319cd8a8c4ea4aa0162275356c9ec")
                 .setUserData(mapOf(
                     "name" to "Sahin",
-                    "user_name" to "Saiful",
-                    "recommend_make" to "BMW",
-                    "recommend_model" to "3 series",
-                    //"recommend_car_json" to "{\"json\"=\"data\"}",
-                    "recommend_car_json" to "http://www.google.com"
+                    "user_name" to "sahin"
                 ))
                 .build()
         )
 
 
         //storylyView.openStory("93337", "855786", PlayMode.Default)
+        storylyView.hydrateProducts(getSampleHydrateProductList())
 
         val items = mutableListOf<STRCartItem>()
 
@@ -85,16 +90,16 @@ class MainActivity : AppCompatActivity() {
             override fun storylyEvent(storylyView: StorylyView, event: StorylyEvent) {
                 when (event){
                     StoryCheckoutButtonClicked -> {
-                        Log.d("Shopping", "StoryCheckoutButtonClicked")
+                        Log.d("ShoppingEvent:", "StoryCheckoutButtonClicked")
                     }
                     StoryCartButtonClicked -> {
-                        Log.d("Shopping", "StoryCartButtonClicked")
+                        Log.d("ShoppingEvent:", "StoryCartButtonClicked")
                     }
                     StoryCartViewClicked -> {
-                        Log.d("Shopping", "StoryCartViewClicked")
+                        Log.d("ShoppingEvent:", "StoryCartViewClicked")
                     }
                     StoryProductSelected -> {
-                        Log.d("Shopping", "StoryProductSelected")
+                        Log.d("ShoppingEvent:", "StoryProductSelected")
                     }
                     else -> {}
                 }
@@ -138,7 +143,7 @@ class MainActivity : AppCompatActivity() {
 
                 Log.d("Shoppable", "ShoppableEvent: ${event}")
                 Log.d("Shoppable", "ShoppableCart: ${cart}")
-                Log.d("Shoppable", "ShoppableChange: ${change}")
+                Log.d("Shoppable", "ShoppableChange: ${change?.item?.productId}")
 
             }
         }
@@ -158,7 +163,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     )
                 }
-                //storylyView.pauseStory()
+                storylyView.closeStory()
                 /*Handler().postDelayed({
                     storylyView.closeStory()
                 }, 2000)*/
@@ -185,6 +190,12 @@ class MainActivity : AppCompatActivity() {
                     storylyView.visibility = View.VISIBLE
                     Log.d("customParameter", "-----> {${customData}}" )
                 }*/
+
+                val unseenSG = storyGroupList.filter { !it.seen }.size
+
+
+
+                Log.d("Unseen", "Unseen SG:${unseenSG}")
 
                 Log.d("storylyURL", "URL:${StorylyDataSource.API}")
 
@@ -272,7 +283,13 @@ class MainActivity : AppCompatActivity() {
                 Log.d("QUIZ----->","StoryQuizComponent:${quizComponent?.title} ") // You can track StoryViewed event.
 
 
+                when (event) {
+                    StorylyEvent.StoryViewed -> {
+                        Log.d("Seen", "seen ${story}" )
+                    }
 
+                    else -> {}
+                }
 
                 Log.d("--------------StoryType-------------------", "StoryComponent{${storyComponent?.type}}")
 
@@ -283,6 +300,62 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+    }
+    val productFeed = mapOf<String, List<STRProductItem>>(
+        "SG_1" to listOf(
+            STRProductItem(
+                productId = "1",
+                productGroupId="1",
+                title="High-waist midi skirt",
+                url="https://www.storyly.io/",
+                desc="High-waist midi skirt made of a viscose blend. Featuring a slit at the hem and invisible zip fastening.",
+                price= 25.99F,
+                salesPrice= 25.99F,
+                currency="USD",
+                imageUrls= listOf(
+                    "https://random-feed-generator.vercel.app/images/clothes/group-1/1-6D7868.jpg",
+                    "https://random-feed-generator.vercel.app/images/clothes/group-1/2-6D7868.jpg",
+                 ),
+                variants= listOf<STRProductVariant>(),
+                ctaText= "Buy now"
+                )
+            ),
+        )
+    private fun getSampleHydrateProductList(): List<STRProductItem> {
+        return listOf(
+            STRProductItem(
+                "58",
+                "6",
+                "Calvin Klein Beauty woda perfumowana",
+                "https://www.flaconi.pl/perfumy/calvin-klein/beauty/calvin-klein-beauty-woda-perfumowana.html",
+                "Calvin Klein Beauty - zapach, który czyni cię piękną Na pewno znasz to wyjątkowe uczucie, które czujesz",
+                244.40f,
+                157.68f,
+                "PLN",
+                listOf(
+                    "https://cdn.flaconi.pl/media/catalog/product/c/a/cacharel-noa-eau-de-toilette-30-ml-3360373016334.jpg",
+                    "https://cdn.flaconi.pl/media/catalog/product/c/a/calvin-klein-beauty-eau-de-parfum-30-ml-3607340216046-pack.jpg",
+                ),
+                listOf(),
+                "Buy now Calvin"
+            ),
+            STRProductItem(
+                "89",
+                "10",
+                "BVLGARI Aqva pour Homme woda toaletowa",
+                "https://www.flaconi.pl/perfumy/bvlgari/aqva-pour-homme/bvlgari-aqva-pour-homme-woda-toaletowa.html",
+                "Bvlgari Aqva Pour Homme – zapach przywodzący na myśl świeżość oceanu Bvlgari Aqva Pour Homme to orzeźwiający",
+                142.40f,
+                117.68f,
+                "PLN",
+                listOf(
+                    "https://cdn.flaconi.pl/media/catalog/product/b/v/bvlgari-aqva-pour-homme-eau-de-toilette_1.jpg",
+                    "https://cdn.flaconi.pl/media/catalog/product/b/v/bvlgari-aqva-pour-homme-eau-de-toilette-100-ml-783320413698-pack.jpg",
+                ),
+                listOf(),
+                "Buy now Bvlgari"
+            ),
 
+            )
     }
 }

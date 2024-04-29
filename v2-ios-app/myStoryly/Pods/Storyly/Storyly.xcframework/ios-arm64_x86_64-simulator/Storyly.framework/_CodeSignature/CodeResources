@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		0iiyNmNwVRY8+4IB2z5JuEf+W6o=
+		jbiLXRPv3epOMKt3lOFiWKzqf8k=
 		</data>
 		<key>Headers/NSData+ST_ImageContentType.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Headers/Storyly-Swift.h</key>
 		<data>
-		f5aV1ztX0Xqb6f2UrlQ5R2X1z44=
+		2KQ0CNNmtrMwEQwEXwoXiA++36U=
 		</data>
 		<key>Headers/Storyly.h</key>
 		<data>
@@ -122,51 +122,51 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fK//a3qEwYmfZ66TvHWg9c0tKjA=
+		yIhasYaH+aIczM6wL8Q+djBnzsQ=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		ZQLQmzwoyWYpQVnLJw9fM1Kmbfs=
+		6QD+7DfWmsYPqFIBXFrMEWIwzX4=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		0UCjsLJXo6RNiVciNWHZ/GSNltE=
+		eRYirfapwvvkLGwqdhFuO68EMrM=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		luxkQ5Nj2byxm/wshhuqeN/il1o=
+		9ZAV8EyQWrqFgl+ecJ5iHKZ1J8g=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		0UCjsLJXo6RNiVciNWHZ/GSNltE=
+		eRYirfapwvvkLGwqdhFuO68EMrM=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		JOa0w20/P42c1N3k0pnZVs3zKAU=
+		xoY56TPDwkj+BAAZOk6VwNBtHD8=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		ZQLQmzwoyWYpQVnLJw9fM1Kmbfs=
+		6QD+7DfWmsYPqFIBXFrMEWIwzX4=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		hc978hEWX7nu15qXGarEv90UkDw=
+		Q9YVIQdm/t3Va39gz8Hx5A/hM/Y=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		YqI93bIeSPrrQB1Dk3S/UHVEJOo=
+		+ybdE8CZsq+N9vc0211Sl4dl82E=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		hc978hEWX7nu15qXGarEv90UkDw=
+		Q9YVIQdm/t3Va39gz8Hx5A/hM/Y=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		2bPp8k9Wo2s3WyViivnK4d+zIh0=
+		TpU8z5kLd1OdJhN8I6AZcHl/aFk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		RKp2cKxe1KbbFEv/qRy9iee4aIc=
+		kGQTle1iqCvOiuzxnnbxN7fti3A=
 		</data>
 		<key>PrivateHeaders/SDAnimatedImageView+WebCache.h</key>
 		<data>
@@ -399,7 +399,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			L1SJGn4pEBwMYk9JSuLPMuvXpgWqdOlcBzIAhfHyqyI=
+			7OwuAqqdr6XnZdPfpfr2CnnWWiMzZ+glt+WPRrgwji0=
 			</data>
 		</dict>
 		<key>Headers/NSData+ST_ImageContentType.h</key>
@@ -567,7 +567,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6yUw5bQ0wUwrCsKJCOxnxnaPDzjfI1ZGsPRCS8iwkVc=
+			gZHxaU7vuYXHDeLQcJDWdkdRsGWpNG4H7d9uDZb9DLs=
 			</data>
 		</dict>
 		<key>Headers/Storyly.h</key>
@@ -602,77 +602,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0c617FnE/0w3sKe7zpEuXuy+MWrgpb/35PkA3r45rwY=
+			Ibfq/jOeLFr8ajXFmKsnLJCb5ZhO9T5VQeTvjMTVrr8=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lcgyGZ2iNX+BUYp7rwnUhWj4YhjFgB1vZRv+QxT8r8I=
+			9VB2FDCufpxeDQxgDDgt7lLavhQ7KigAZGaej1HsCOo=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UGhaevNcmYf2JUKC1n9g2WTZsC35IGtY8keYT+c026Q=
+			Jd9oJyoZENV/nk8mwXBnrNq/dT5urOkKHXRJ4taesEY=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lcgyGZ2iNX+BUYp7rwnUhWj4YhjFgB1vZRv+QxT8r8I=
+			9VB2FDCufpxeDQxgDDgt7lLavhQ7KigAZGaej1HsCOo=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XH0CkN+RcTydOLB1osa5b6flsngklQNjMKnViySuRII=
+			Ub5Djy3UARIQD8UQjyLelfW/Suhg+D+qsBWqAmOfqsA=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0c617FnE/0w3sKe7zpEuXuy+MWrgpb/35PkA3r45rwY=
+			Ibfq/jOeLFr8ajXFmKsnLJCb5ZhO9T5VQeTvjMTVrr8=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ykxBsxIeyDTFLNxckCiDZ8kxoUrNZO0zhc9i2q/E5dk=
+			fEm4N/uoDQfvKMVchs4plsGh7j5I3IWTONuy13jC+5I=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GcI1TbYR+bAP2vtightEi7o4GcrvO0nuuDDaaKCjKPU=
+			11mqPevsJdALhWQSEOxYM02zmOgRax58Fo6RcsX27Y8=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ykxBsxIeyDTFLNxckCiDZ8kxoUrNZO0zhc9i2q/E5dk=
+			fEm4N/uoDQfvKMVchs4plsGh7j5I3IWTONuy13jC+5I=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rU0HqETneMjAUnJ8ubZozUn7NyhdCoujJ6ROWmk3peM=
+			37LlLHhGEHmLgfnt8ptPYlDSSyLKjZxPNkdmf4aEdos=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5Jc5PWDa+dv3IIesELxbguKfZOti+izg1qPtlTvCH/8=
+			oHWr2tsdqsB6rg9BW3n1Ui9x0X3SwYllYKSwWx9/psE=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SDAnimatedImageView+WebCache.h</key>

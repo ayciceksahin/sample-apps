@@ -129,6 +129,9 @@ extension ViewController: StorylyDelegate {
             print("EVENT --> \(Storyly.StorylyEvent.StoryPromoCodeCopied)")
             
         }
+        if (event == Storyly.StorylyEvent.StoryCTAClicked){
+            print("EVENT --> \(story?.media.actionUrl)")
+        }
         
         /*if ( event == Storyly.StorylyEvent.StoryViewed) {
             print("Story Type ======== \(story?.media.type.rawValue.description)")

@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import com.uiapp.databinding.ActivityMainBinding
 import androidx.fragment.app.Fragment
 import com.appsamurai.storyly.*
@@ -40,9 +41,8 @@ class MainActivity : AppCompatActivity() {
         if (storylyFlag == true) {
             storylyView.storylyInit = StorylyInit(
                 "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU",
-                //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NTIsImluc19pZCI6MTMzMDF9.0VSpIaKA9IzeTZ1CICJOkINWyENP7ROPN_d5Qo5yEo4",
                 StorylyConfig.Builder()
-                    .setLabels(labels = setOf("hub"))
+                    .setLabels(labels = setOf("", "quiz_offers"))
                     .setCustomParameter("62340800")
                     .setUserData(mapOf(
                         "name" to "Sahin",
@@ -56,12 +56,16 @@ class MainActivity : AppCompatActivity() {
             storylyView.visibility = View.GONE
         }
 
-
+        val data1 = "strausscon://storyly?g=85636&instance=11141&play=sg"
         binding.button.setOnClickListener{
             val goSecondPage = Intent(applicationContext, MainActivity2::class.java)
             startActivity(goSecondPage)
+            //storylyView.openStory(Uri.parse("strausscon://storyly?g=139474&instance=11141&play=sg"))
+            /*storylyView.storylyInit.config.labels = setOf("xboxtest5", "quiz_offers")
+            Handler().postDelayed({
+                storylyView.openStory(Uri.parse("strausscon://storyly?g=139474&instance=11141&play=sg"))
+            }, 1000)*/
         }
-
 
 
         storylyView.storylyListener = object : StorylyListener {
@@ -80,6 +84,8 @@ class MainActivity : AppCompatActivity() {
 
             }
 
+
+
             override fun storylyLoaded(
                 storylyView: StorylyView,
                 storyGroupList: List<StoryGroup>,
@@ -95,9 +101,12 @@ class MainActivity : AppCompatActivity() {
 
                 Log.d("storylyURL", "URL:${storyGroupList}")
 
-                if (dataSource == StorylyDataSource.Local) {
-                    Log.d("[Local]", "IntegrationActivity:storylyLoaded - storyGroupList size {${storyGroupList.size}} - source {$dataSource}")
+                if (dataSource == StorylyDataSource.API) {
+
+                    Log.d("[API]", "IntegrationActivity:storylyLoaded - storyGroupList size {${storyGroupList.size}} - source {$dataSource}")
+
                 }
+
 
                 /*if (dataSource == StorylyDataSource.API) {
                     storylyView.openStory("62376", "542324")

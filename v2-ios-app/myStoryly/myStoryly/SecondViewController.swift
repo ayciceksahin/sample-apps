@@ -16,7 +16,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.storylyView.storylyInit = StorylyInit(storylyId: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU")
+        self.storylyView.storylyInit = StorylyInit(storylyId: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjkzNDcsImFwcF9pZCI6MTQyMTMsImluc19pZCI6MTU0ODJ9.lxOQ1X7HzhMWP4ulh5UyMpUhhC0CpE4er2wEwpYWFGo")
         self.storylyView.rootViewController = self
         self.storylyView.delegate = self
         // Do any additional setup after loading the view.
