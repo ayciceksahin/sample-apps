@@ -177,11 +177,10 @@ export default class App extends Component {
                     onFail={errorMessage => {
                         console.log(`[Storyly] default - onFail ${errorMessage}`);
                     }}
-                     onPress={story => { 
+                     onPress={event => { 
                         //this.storyly.closeStory()
-                        this.storyly.openStoryWithId("146402", "1617771");
-                        //Linking.openURL(story.media.actionUrl)
-                        console.log(`[Storyly] default - onPress`, story);
+                        Linking.openURL(event.story.actionUrl)
+                        console.log(`[Storyly] default - onPress`, event.story.actionUrl);
                      }}
                     /*onEvent={event => {{
                         "event" == "StoryCompleted" ? 
