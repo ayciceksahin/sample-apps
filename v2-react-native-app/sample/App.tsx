@@ -27,16 +27,28 @@ const CustomPortraitView = ({ storyGroup }) => {
     return (
         <>
             {(storyGroup ? (
-                <View style={{}}>
-                    
-                    <View style={{ width: 84, height: 84, borderRadius: 42, alignItems: 'center',justifyContent: 'center', backgroundColor:  storyGroup.seen ? "blue" : "black" }}>
-                        <View style={{ width: 78, height: 78, borderRadius: 39, alignItems: 'center', backgroundColor:  storyGroup.seen ? "white" : "white" }}>
-                            <View style={{ flexDirection:'column', width: 78,  height: 78, alignItems: 'center',justifyContent: 'center', }}>
-                                <View style={{ width: "100%",  height: "100%", alignItems: 'center', justifyContent: 'center'}}>
-                                   <Image style={{ width: 70, height: 70,  borderRadius: 35 }} source={{ uri:storyGroup.iconUrl} } />
-                                </View>
-                            </View> 
-                        </View>  
+                <View style={{ width: 100, height: 178 }}>
+                    <Image style={{
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: 8 }}
+                        source={{ uri: storyGroup.iconUrl}} />
+                    <View style={{ width: 100, height: 178, borderRadius: 8, position: 'absolute', backgroundColor:  storyGroup.seen ? "#16ad055f" : "#1905ad5f" }}>
+                        <View style={{ flexDirection:'column', width: 90, marginLeft: 5, height: "20%", alignItems: 'center', justifyContent: 'flex-start'}}>
+                        { storyGroup.pinned ?
+                            <Image style={{ width: 20, height: 20, marginTop:10, marginBottom: 10, borderRadius: 10 }} source={ PIN_ICON } /> 
+                             : 
+                             <View style={{  width: 20, height: 1, marginTop:5, marginBottom: 10 }} />}
+                        </View> 
+
+                        <View style={{ flexDirection:'column', width: 90, marginLeft: 5, height: "80%", alignItems: 'flex-end', justifyContent: 'flex-end'}}>
+                        <View style={{ width: "100%", marginLeft: 5, height: "70%", alignItems: 'center', justifyContent: 'flex-end'}}>
+                              <Image style={{ width: 60, height: 60, marginTop:5, borderRadius: 30 }} source={ HOVER_IMG } />
+                          </View>
+                          <View style={{ width: "100%", marginLeft: 5, height: "30%", alignItems: 'center', justifyContent: 'flex-end'}}>
+                              <Text style={{ marginBottom: 5,flexWrap: 'wrap', width: "90%", textAlign: 'center', fontWeight: 'bold', fontSize: 12, color: "white" }}>{storyGroup.title}</Text>
+                          </View>
+                        </View> 
                     </View>
                 </View>
             ) : (
@@ -101,26 +113,23 @@ export default class App extends Component {
                             }
                         }}
                     style={{ width: '100%', height: convertToNative(178), marginTop: 10, marginBottom: 10}}
-                    /*storyGroupViewFactory={{
+                    storyGroupViewFactory={{
                         width: convertToNative(100),
                         height: convertToNative(178),
                         customView: CustomPortraitView
-                    }}*/
-                    storylyId={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjQzMjcsImFwcF9pZCI6MTI2NzgsImluc19pZCI6MTgzMTl9.Hpjn21omBWjTt_EmUHGD_R-ruSITE_SbbTwYSySE-bk"}
+                    }}
+                    storylyId={"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTE3NDYsImluc19pZCI6MTI1ODJ9.k7IVUbx4b23WTobh7u-ZIAYMdjN1xIDyA8z5WWncWbU"}
                     //storyGroupSize="small"
                     //storyGroupTextTypeface={"Lobster1.4.otf"}
-                    storylySegments={["comms_cg_mar24", "turkey", "germany"]}
-                    customParameter=''
+                   storylySegments={["en", "french", "english"]} 
+                    customParameter='97386670'
                     storylyTestMode = {true}
-                    storylyUserProperty={{
-                        "referral_parent_1" : "abc",
-                        "referral_parent_1_student" : "",
-                        "referral_parent_2" : "",
-                        "referral_parent_2_student" : "",
-                        "referral_parent_3" : "",
-                        "referral_parent_3_student" : "",
-                        "total_delta_chips_earned" : "",
-                    }}
+                    /*storylyUserProperty={{
+                        "dugout_amt_won" : "123",
+                        "dugout_cj" : "123",
+                        "dugout_perc_player_in_dt" : "123",
+                        "dugout_roundplyd" : "123",
+                    }}*/
                     storyFallbackIsEnabled = {true}
                     storyCartIsEnabled = {true}
                     onCartUpdate={ eventPayload => {
@@ -170,8 +179,9 @@ export default class App extends Component {
                     }}
                      onPress={story => { 
                         //this.storyly.closeStory()
-                        Linking.openURL(story.media.actionUrl)
-                        console.log(`[Storyly] default - onPress`, story.media.actionUrl);
+                        this.storyly.openStoryWithId("146402", "1617771");
+                        //Linking.openURL(story.media.actionUrl)
+                        console.log(`[Storyly] default - onPress`, story);
                      }}
                     /*onEvent={event => {{
                         "event" == "StoryCompleted" ? 
