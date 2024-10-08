@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     var cartItems: [STRCartItem] = []
     
-    let STORYLY_INSTANCE_TOKEN =             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjkzNDcsImFwcF9pZCI6MTQyMTMsImluc19pZCI6MTU0ODJ9.lxOQ1X7HzhMWP4ulh5UyMpUhhC0CpE4er2wEwpYWFGo"
+    let STORYLY_INSTANCE_TOKEN =             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjcxMzcsImFwcF9pZCI6MTcwNTcsImluc19pZCI6MTg5MTl9.6c3Soj-Lnkh6jch0-h8VGZ1S6w3keS5BRtNQ4nwMAPM"
     
     let userPropertiesData = [
         "name" : "Sahin",
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var storylyView: StorylyView!
     
-    let openStoryURL = "gssapp://storyly?g=115711&s=1105275&instance=12582&play=sg"
+    let openStoryURL = "freshapp://storyly?g=146402&s=1617771&instance=18919&play=s"
     
     
     func openStory2(url:URL) {
@@ -51,9 +51,15 @@ class ViewController: UIViewController {
                                styling: StorylyStoryGroupStyling.Builder()
                                    .setSize(size: .Large)
                                    .setIconHeight(height: 110)
-                                   .setIconWidth(width: 160)
-                                   .setIconCornerRadius(radius: 12)
+                                   .setIconWidth(width: 300)
+                                   .setIconCornerRadius(radius: 0)
+                                   //.setIconThematicImageLabel(label: "dark")
                                    .build()
+                            )
+                           .setStoryStyling(
+                            styling: StorylyStoryStyling.Builder()
+                                //.setInteractiveFont(font: UIFont.monospacedDigitSystemFont(ofSize: 10, weight: UIFont.Weight.bold))
+                                .build()
                             )
                            .setProductConfig(
                             config: StorylyProductConfig.Builder()
@@ -63,9 +69,10 @@ class ViewController: UIViewController {
                                 .setCartEnabled(isEnabled: true)
                                 .build()
                            )
-                           .setLabels(labels: Set(arrayLiteral: "es", "country_russia", "french", "germany", "country-uk", "country-us","active", "de" ))
+                           .setLabels(labels: Set(arrayLiteral: "tr", "english", "french", "uk", "en", "homepage","active", "bulgaria_accounts_screen" ))
                            .setTestMode(isTest: true)
-                           .setCustomParameter(parameter: "8ad9a66b-f4c2-4504-ab2e-463e67e832e4")
+                           .setLocale(locale: "tr-TR")
+                           .setCustomParameter(parameter: "customid")
                            .build()
         )
         
@@ -78,8 +85,6 @@ class ViewController: UIViewController {
         //self.storylyView.openStory(payload: URL(string: openStoryURL)!)
         //self.storylyView.openStory(storyGroupId: "115711", play: PlayMode.StoryGroup)
         //self.storylyView.languageCode = "TR"
-        
-        
     }
 
 }
@@ -106,14 +111,55 @@ extension ViewController : StorylyDelegate {
                                 rootViewController: UIViewController,
                                 story: Storyly.Story) {
         // story.media.actionUrl is important field
-        print("[storyly] IntegrationViewController:storylyActionClicked - story action_url {\(story.media.actionUrl ?? "")}")
+        print("[storyly] IntegrationViewController:storylyActionClicked - story action_url {\(story.actionUrl ?? "")}")
         
-        self.storylyView.closeStory(animated: true)
+        //self.storylyView.closeStory(animated: true)
+        //self.storylyView.openStory(storyGroupId: "146402", storyId: "1617771", play: PlayMode.StoryGroup)
                 
-        guard let url = URL(string: story.media.actionUrl! ) else {
+        guard let url = URL(string: story.actionUrl! ) else {
             return
                 }
         UIApplication.shared.openURL(url)
+    }
+    
+    func storylyEvent(_ storylyView: Storyly.StorylyView,
+                      event: Storyly.StorylyEvent,
+                      storyGroup: Storyly.StoryGroup?,
+                      story: Storyly.Story?,
+                      storyComponent: Storyly.StoryComponent?) {
+        print("seen ======== \(story!.name)")
+        print("StoryNextClicked ======== \(Storyly.StorylyEvent.StoryNextClicked.stringValue)")
+        //print("StoryComponent ======== \(storyComponent?.type.stringValue)")
+        print("Event Type ===== \(event.stringValue)")
+
+        if (event == Storyly.StorylyEvent.StoryViewed ){
+                        
+            if( storyComponent?.type == StoryComponentType.Image){
+                
+                //print("StoryComponent ======== \(storyComponent?.type.stringValue)")
+                print("StoryComponent ======== Stop Music")
+            }
+            
+            else{
+                print("StoryComponent ======== Play Music")
+            }
+            
+        }
+        
+        
+        if (event == Storyly.StorylyEvent.StoryPromoCodeCopied ){
+            
+            print("EVENT --> \(Storyly.StorylyEvent.StoryPromoCodeCopied)")
+            
+        }
+        if (event == Storyly.StorylyEvent.StoryCTAClicked){
+            print("EVENT --> \(story?.actionUrl)")
+        }
+        
+        /*if ( event == Storyly.StorylyEvent.StoryViewed) {
+            print("Story Type ======== \(story?.media.type.rawValue.description)")
+        }*/
+        
     }
 }
 

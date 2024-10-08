@@ -11,7 +11,7 @@ import Storyly
 
 class ViewController: UIViewController {
     let storylyViewProgrammatic = StorylyView()
-    let STORYLY_INSTANCE_TOKEN = "YOUR_TOKEN"
+    let STORYLY_INSTANCE_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjEyMDQ5LCJhcHBfaWQiOjE4MjI0LCJpbnNfaWQiOjIwNTIwfQ.vvj09IAC4iNeO3RI6JHO3qg7QRLAhVabB7faPqEk76s"
     
     
     

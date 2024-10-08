@@ -8,10 +8,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>dsw</string>
+			<string>tbi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>dsw</string>
+				<string>tbi</string>
 			</array>
 		</dict>
 	</array>

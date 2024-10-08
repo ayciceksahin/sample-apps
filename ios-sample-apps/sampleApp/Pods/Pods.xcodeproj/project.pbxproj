@@ -16,6 +16,7 @@
 			dependencies = (
 			);
 			name = Storyly;
+			productName = Storyly;
 		};
 /* End PBXAggregateTarget section */
 
@@ -76,11 +77,11 @@
 		7313FBCCED64337856FD56B542AC539A /* Pods-sampleApp-sampleAppUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-sampleApp-sampleAppUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		82F346C52B04526DB3CC22BF9B426D16 /* Pods-sampleApp-sampleAppUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-sampleApp-sampleAppUITests-frameworks.sh"; sourceTree = "<group>"; };
 		843597202C3051F474DD81C8AF339241 /* Pods-sampleApp-sampleAppUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-sampleApp-sampleAppUITests-Info.plist"; sourceTree = "<group>"; };
-		8533F8EE959D57190A8485AB8C84FB07 /* Storyly.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = Storyly.xcframework; sourceTree = "<group>"; };
+		8533F8EE959D57190A8485AB8C84FB07 /* Storyly.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = Storyly.xcframework; sourceTree = "<group>"; };
 		9051EA2494E274422A70A9B25FF934E1 /* Pods-sampleApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-sampleApp-umbrella.h"; sourceTree = "<group>"; };
 		91556333417D254646585FA02B3D7251 /* Pods-sampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-sampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
 		98A481159146CCC932CE61CEDD7517DB /* Storyly-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Storyly-xcframeworks.sh"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A472F53860142D12192266849A6C5336 /* Pods-sampleAppTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-sampleAppTests-umbrella.h"; sourceTree = "<group>"; };
 		A7790A277AE68075578E7571E6E84667 /* Pods-sampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-sampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		AC477349AB6E19396B19C821F158E2FC /* Pods-sampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-sampleApp-frameworks.sh"; sourceTree = "<group>"; };
@@ -89,7 +90,7 @@
 		DCA8F0B338E3D8947C2A6F1E7D0DE4C4 /* Pods-sampleAppTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-sampleAppTests-dummy.m"; sourceTree = "<group>"; };
 		E34A29A45FE3FCAEDD9598201D5CC8E8 /* Pods-sampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-sampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E3EB7BC21A804FD3C821B86FF1D6BEDC /* Pods-sampleApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-sampleApp-Info.plist"; sourceTree = "<group>"; };
-		EC73B054554C87DE98129F7F8493E889 /* Pods-sampleApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-sampleApp"; path = Pods_sampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC73B054554C87DE98129F7F8493E889 /* Pods_sampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0345274F4A585550C1D9F46BD962412 /* Pods-sampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-sampleApp.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +128,6 @@
 				F9F5739C29697F0BF0FCE7A1084B8EEE /* Frameworks */,
 				BE046992A652B795C36BF9F5FC78258D /* Support Files */,
 			);
-			name = Storyly;
 			path = Storyly;
 			sourceTree = "<group>";
 		};
@@ -240,7 +240,7 @@
 		E01346340D405AC26332A1392234AD79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC73B054554C87DE98129F7F8493E889 /* Pods-sampleApp */,
+				EC73B054554C87DE98129F7F8493E889 /* Pods_sampleApp.framework */,
 				547C2FACE1C8BAE29C92995C71A4FEFF /* Pods-sampleApp-sampleAppUITests */,
 				C357E9786C32D55B930BE1E0EE89845A /* Pods-sampleAppTests */,
 			);
@@ -301,7 +301,7 @@
 			);
 			name = "Pods-sampleApp";
 			productName = Pods_sampleApp;
-			productReference = EC73B054554C87DE98129F7F8493E889 /* Pods-sampleApp */;
+			productReference = EC73B054554C87DE98129F7F8493E889 /* Pods_sampleApp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		779F15E8958A860CC1DEC331A3D83E3A /* Pods-sampleAppTests */ = {

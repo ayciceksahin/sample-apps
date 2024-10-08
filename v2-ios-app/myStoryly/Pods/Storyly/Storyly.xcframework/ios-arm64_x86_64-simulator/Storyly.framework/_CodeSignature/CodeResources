@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		jbiLXRPv3epOMKt3lOFiWKzqf8k=
+		OrROEIe3cPjY4WFEwgxEGI4Fk3w=
 		</data>
 		<key>Headers/NSData+ST_ImageContentType.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Headers/Storyly-Swift.h</key>
 		<data>
-		2KQ0CNNmtrMwEQwEXwoXiA++36U=
+		wCQ0sYGYWizfDsiTYEPfvEJrm+4=
 		</data>
 		<key>Headers/Storyly.h</key>
 		<data>
@@ -122,51 +122,55 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		yIhasYaH+aIczM6wL8Q+djBnzsQ=
+		3lUe/f9Ii2GdZYOcgTy5p4SABQM=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		6QD+7DfWmsYPqFIBXFrMEWIwzX4=
+		lv2BvRKWgLVorRYe/d6TUkfnvoM=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		eRYirfapwvvkLGwqdhFuO68EMrM=
+		VK0C/RUmWU9VZiDXy8nlzv7IMaA=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		9ZAV8EyQWrqFgl+ecJ5iHKZ1J8g=
+		TWjYGqYY3XQjFOHjeiylPZFCjcc=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		eRYirfapwvvkLGwqdhFuO68EMrM=
+		VK0C/RUmWU9VZiDXy8nlzv7IMaA=
 		</data>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		xoY56TPDwkj+BAAZOk6VwNBtHD8=
+		Czs9hdWmBZ8lh2r4xwdfAcAL7sQ=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		6QD+7DfWmsYPqFIBXFrMEWIwzX4=
+		lv2BvRKWgLVorRYe/d6TUkfnvoM=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Q9YVIQdm/t3Va39gz8Hx5A/hM/Y=
+		unZ3A9y0IjdbWSIdpnBOxhx69gE=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		+ybdE8CZsq+N9vc0211Sl4dl82E=
+		HQxZ7HPOtezL7qo9JQppMFX9Un8=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Q9YVIQdm/t3Va39gz8Hx5A/hM/Y=
+		unZ3A9y0IjdbWSIdpnBOxhx69gE=
 		</data>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		TpU8z5kLd1OdJhN8I6AZcHl/aFk=
+		UeyrRRGnVDWdz7B7wRRo+sefvQU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		kGQTle1iqCvOiuzxnnbxN7fti3A=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		zh3dod3Odmv4BQ1hHg2J3CDXExA=
 		</data>
 		<key>PrivateHeaders/SDAnimatedImageView+WebCache.h</key>
 		<data>
@@ -320,7 +324,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			d9wIflGliBwB10vx7Azss8p0R48=
+			639OQPYUQ4MHTLTPZJ1v+jAh810=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -329,7 +333,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FtQuBlOwrbzS2jjlx/+RVYXTjUU=
+			j1N7efhNt4KpohoC4enJCxh8FXI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -338,7 +342,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ApmD59u1Svb+wN8jidD7Wg8gdtc=
+			UuNKpk9onF0R3a8VNd9Cis+q3FA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -347,7 +351,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DmOM5qFXHyMCkqJ5OCXyEyYPL2c=
+			uRQtFMLLZ+Rzyt13YIcAA80P+ys=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -356,7 +360,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZXn3PI6r671NHgFJCxHRib6jY7c=
+			A0Ik8a0P7HUzqGHGMUptnevoJFs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -369,7 +373,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XiOPd3pqf7QuTV3hNDJSFYF5yf4=
+			EuqjfKFYpZMViSTdFMbb9rhembw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -378,7 +382,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wBAvJpG9bhkgHZGMhwmQ4C8Qk4w=
+			FErrNUggErm1lzdbTr/5wTvOsho=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -387,7 +391,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jBT9fJKuJfzT13wzmMS+I1/oWMU=
+			MDWbvHBpUVptMkVnnMMQu80+Hs0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -399,7 +403,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7OwuAqqdr6XnZdPfpfr2CnnWWiMzZ+glt+WPRrgwji0=
+			u64rkC7ob5UJLXiqjcWmRfOAUEzDe5/DbGmIStfKeF8=
 			</data>
 		</dict>
 		<key>Headers/NSData+ST_ImageContentType.h</key>
@@ -567,7 +571,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gZHxaU7vuYXHDeLQcJDWdkdRsGWpNG4H7d9uDZb9DLs=
+			XGKZLJnOCCGaycgGzIzIxkCAZKA2zuSD5nIrUxaI3bk=
 			</data>
 		</dict>
 		<key>Headers/Storyly.h</key>
@@ -602,70 +606,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ibfq/jOeLFr8ajXFmKsnLJCb5ZhO9T5VQeTvjMTVrr8=
+			+ATqNadJ3yXhfGPuaSYH12vQmnX4YSoWIxKXlE8j3F8=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9VB2FDCufpxeDQxgDDgt7lLavhQ7KigAZGaej1HsCOo=
+			OLhdGtQhKu4HopyC233lCe2FX7pbwi0jfLBQua32T1I=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jd9oJyoZENV/nk8mwXBnrNq/dT5urOkKHXRJ4taesEY=
+			5xx1gMPWL1IrSZ6jkG7PJW/zuECiuwEiTJdf97B4uSM=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9VB2FDCufpxeDQxgDDgt7lLavhQ7KigAZGaej1HsCOo=
+			OLhdGtQhKu4HopyC233lCe2FX7pbwi0jfLBQua32T1I=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ub5Djy3UARIQD8UQjyLelfW/Suhg+D+qsBWqAmOfqsA=
+			x6S8y+1oAjK58fZZPW0Sg9k8UgHcrRg1edWguU8kWT4=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ibfq/jOeLFr8ajXFmKsnLJCb5ZhO9T5VQeTvjMTVrr8=
+			+ATqNadJ3yXhfGPuaSYH12vQmnX4YSoWIxKXlE8j3F8=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fEm4N/uoDQfvKMVchs4plsGh7j5I3IWTONuy13jC+5I=
+			5zrUjgAWWyHx8Tya+r2pT0SPFO5rPFCota+htswmJ9A=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			11mqPevsJdALhWQSEOxYM02zmOgRax58Fo6RcsX27Y8=
+			YPh/9vkqGb/ZbQ5bVVhgSrgWDkYb3BuzKuSxxQ44ttQ=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fEm4N/uoDQfvKMVchs4plsGh7j5I3IWTONuy13jC+5I=
+			5zrUjgAWWyHx8Tya+r2pT0SPFO5rPFCota+htswmJ9A=
 			</data>
 		</dict>
 		<key>Modules/Storyly.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			37LlLHhGEHmLgfnt8ptPYlDSSyLKjZxPNkdmf4aEdos=
+			2tZkplM3XhhEEmt8h4sld+lpX8HcI2d2erap497mOd4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -673,6 +677,13 @@
 			<key>hash2</key>
 			<data>
 			oHWr2tsdqsB6rg9BW3n1Ui9x0X3SwYllYKSwWx9/psE=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AXqGfsS5cPaI1d0MiZCPczuUTDGatoXRUh/i7JzdcH4=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SDAnimatedImageView+WebCache.h</key>
@@ -938,7 +949,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1toeIQwBcS9hA11Va5F0YGT1HhfrRm+HRt4rAEK6Bzk=
+			ZNjQGL5WhL3lSmGMhnuUH6vpQyKpvsirsbuhyBvxZDA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -947,7 +958,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iZBLPHDbJ+PYr4Zzxl4MpGOsICPuxXKc5RPi8hAPkl0=
+			zfzwM1wlFoMJAEGEyQ6PL4bp1jeXm+90nSfVDNHRaGI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -956,7 +967,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8IoyGGLi+pRX6SIKAM3yfp4q5Q74zoHzmIE4eL42jhE=
+			f57kLl/1PNFe+URBFZMRUKQY6X+sj7Rza9RO42I+cKM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -965,7 +976,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YmhwrVLGUkg2HIUcmcPWMqJUQPdJ6E1h9z5B/ipHR8c=
+			mop3YGbjD/6ZyQ32qH0W8rfayocIITI16sE+sHLUZxI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -974,7 +985,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BmSCa5+zUL3ex66aY3nDIJ69wQ+xQ8yGyq3WpcUAayg=
+			JRxCfBzSbBQ+pIvK7atx9EVd6AYj9k9trVhHMQKv6U4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -990,7 +1001,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gt5GftuPkkne2WFuDRQQnAppTugFPe+4o1NY7d3H7Xc=
+			lOZ4sILxMTNUTtItVuC2TGK+046uK+WoPXBwkCIjQ1s=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -999,7 +1010,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gr8muqNsPtU20iLVh9BlDwqkt4lnc0X7/j5jmlQPjd4=
+			K2ouyOHGR4v978P6hlYi4yiCY+ozNcTOsXrfPmSWOGE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1008,7 +1019,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ffL91M0ordZebl4Vb21MgJ6o3f73JDkopOLB0JYj+LQ=
+			WoywOTrQkvUG/NkAf+R4JQ+h5SlfX+CB2CO4AsKrE0I=
 			</data>
 			<key>optional</key>
 			<true/>

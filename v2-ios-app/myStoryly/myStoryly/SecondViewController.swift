@@ -54,9 +54,9 @@ extension SecondViewController : StorylyDelegate {
                                 rootViewController: UIViewController,
                                 story: Storyly.Story) {
         // story.media.actionUrl is important field
-        print("[storyly] IntegrationViewController:storylyActionClicked - story action_url {\(story.media.actionUrl ?? "")}")
+        print("[storyly] IntegrationViewController:storylyActionClicked - story action_url {\(story.actionUrl ?? "")}")
                 
-        guard let url = URL(string: story.media.actionUrl! ) else {
+        guard let url = URL(string: story.actionUrl! ) else {
             return
                 }
         UIApplication.shared.openURL(url)
