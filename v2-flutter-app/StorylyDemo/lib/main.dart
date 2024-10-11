@@ -37,7 +37,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static const storylyInstanceToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjc5MjQsImFwcF9pZCI6MTU0MTYsImluc19pZCI6MTY4ODZ9.djck1SGjzhm5DoevmaBy989qIasJ4mCGIZiops1Lh8U";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjUwMjMsImFwcF9pZCI6MTUwMDcsImluc19pZCI6MTYzOTR9.WGy07rPghlj5XN3EW7Z0lrkjYKbQYPTafLDB6k7xSbQ";
 
   //myApp token - Classical Token
   static const storylyToken =
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                   });
                 },
                 androidParam: StorylyParam()
-                  ..storylyId = "Storyly_Token"
+                  ..storylyId = ""
                 //..storyGroupTextTypeface= 'Lobster1.4.otf'
                 //..storyInteractiveTextTypeface= 'Lobster1.4.otf'
                   ..storyGroupListHorizontalEdgePadding = 20
@@ -142,15 +142,15 @@ class _HomePageState extends State<HomePage> {
                   ..isProductCartEnabled = true
                   ..storylyTestMode = true
                   ..storylyLayoutDirection = "rtl"
-                  ..storylyCustomParameters = "bfc76a3a23@nana.sa"
-                  //..storylySegments = ["ar", "seg00002"]
+                  ..storylyCustomParameters = ""
+                  ..storylySegments = ["ru", ""]
                   ..storyGroupListHorizontalPaddingBetweenItems = 20,
                 iosParam: StorylyParam()
-                  ..storylyId = "Storyly_Token"
+                  ..storylyId = ""
                   ..storyGroupListHorizontalEdgePadding = 20
                   ..isProductCartEnabled = true
                   ..isProductFallbackEnabled = true
-                  ..storylyLayoutDirection = "rtl"
+                  //..storylyLayoutDirection = "rtl"
                   ..storylyUserProperty = userProp
                   ..storyGroupListHorizontalPaddingBetweenItems = 20,
                 storylyLoaded: (storyGroups, dataSource) {
@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                 storylyLoadFailed: (errorMessage) =>
                     debugPrint("storylyLoadFailed"),
                 storylyActionClicked: (story) {
-                  debugPrint("storylyActionClicked -> ${story.media.actionUrl}");
+                  debugPrint("storylyActionClicked -> ${story.actionUrl}");
                 },
                 storylyEvent: (event, storyGroup, story, storyComponent) {
                   debugPrint("storylyEvent -> event: $event");
